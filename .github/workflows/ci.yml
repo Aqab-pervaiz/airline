@@ -1,3 +1,17 @@
+#name: Testing
+#on: push
+#
+#jobs:
+#  test_project:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#    - name: Run Django unit tests
+#      run:
+#        pip3 install --user django
+#        python3 manage.py test
+
+
 name: Testing
 on: push
 
@@ -5,8 +19,8 @@ jobs:
   test_project:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Run Django unit tests
-      run:
-        pip3 install --user django
-        python3 manage.py test
+      - uses: actions/checkout@v3
+      - name: Install Django
+        run: pip3 install --user django
+      - name: Run Django unit tests
+        run: python3 manage.py test
