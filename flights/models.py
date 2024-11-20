@@ -18,7 +18,7 @@ class Flight(models.Model):
     duration = models.IntegerField()
 
     def is_valid_flight(self):
-        return self.origin != self.destination or self.duration >= 100
+        return self.origin != self.destination and self.duration >= 100
 
     def __str__(self) -> str:
         return f"{self.id} {self.origin} to {self.destination}"
